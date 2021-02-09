@@ -10,8 +10,8 @@ ATHENZ_CONF_PATH=/opt/athenz-ui/conf/athenz.conf
 
 export ENVIRONMENT="${ENV}"
 export REGION="${REGION}"
-export UI_SERVER="test.ui.athens.aws.oath.cloud"
-export ZMS_SERVER="test.athens.aws.oath.cloud"
+export UI_SERVER="test.ui.athenz.aws.oath.cloud"
+export ZMS_SERVER="test.athenz.aws.oath.cloud"
 export ZMS_SERVER_URL="https://${ZMS_SERVER}:4443/zms/v1/"
 export ROOT=/opt
 export NODE_ENV="production"

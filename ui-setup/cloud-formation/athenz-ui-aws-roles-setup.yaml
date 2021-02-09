@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: 2010-09-09
-Description: Roles needed for athens ui setup
+Description: Roles needed for athenz ui setup
 Parameters:
   AthensServiceRole:
     Type: String

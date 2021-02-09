@@ -4,7 +4,7 @@
 - [VPC setup](#vpc-setup)
 - [S3 bucket for UI data](#create-s3-bucket-to-store-ui-data)    
     - [Generate and upload service private key](#generate-and-upload-service-private-key)
-    - [Upload server X.509 cert and key](#upload-server-x-509-cert-and-key)
+    - [Upload server X.509 cert and key](#upload-server-x509-cert-and-key)
     - [Upload ZMS CA Certs](#upload-zms-ca-certs)
     - [Upload ZMS Public key](#upload-zms-public-key)
 - [Update ZMS DATA BUCKET](#update-zms-data-bucket)
@@ -16,11 +16,11 @@
 
 ## IAM role setup
 
-Create EC2 profile role for UI using [cloudformation template](https://github.com/AthenZ/athenz-aws-cf-setup/tree/master/ui-setup/cloud-formation/athens-ui-aws-roles-setup.yaml). This template creates a role named `athenz.ui-service`
+Create EC2 profile role for UI using [cloudformation template](https://github.com/AthenZ/athenz-aws-cf-setup/tree/master/ui-setup/cloud-formation/athenz-ui-aws-roles-setup.yaml). This template creates a role named `athenz.ui-service`
 
 ## VPC Setup
 
-Setup VPC using the [cloudformation template](https://github.com/AthenZ/athenz-aws-cf-setup/tree/master/ui-setup/cloud-formation/athens-ui-aws-resource-setup.yaml) and giving the following mandatory parameters:
+Setup VPC using the [cloudformation template](https://github.com/AthenZ/athenz-aws-cf-setup/tree/master/ui-setup/cloud-formation/athenz-ui-aws-resource-setup.yaml) and giving the following mandatory parameters:
 
 - `Route53HostedZoneName`
 - `Route53RecordName`

@@ -7,7 +7,7 @@
      - [Schema setup](#schema-setup)
 - [S3 bucket for zts data](#create-s3-bucket-to-store-zts-data)    
      - [Generate and upload service private key and Id](#generate-and-upload-service-private-key-and-id)
-     - [Upload server X.509 cert and key](#upload-server-x-509-cert-and-key)
+     - [Upload server X.509 cert and key](#upload-server-x509-cert-and-key)
      - [Upload RDS CA Certs](#upload-rds-ca-certs)
      - [Upload truststore password](#upload-truststore-password) 
      - [Upload ZTS DB User Password](#upload-zts-db-user-password)
@@ -18,10 +18,10 @@
 - [Update ZMS DATA BUCKET](#update-zms-data-bucket)
 - [Register ZTS Service](#register-zts-service)
 - [Configure Variables and Properties](#configure-variables-and-properties)
-    - [aws_init.sh](#edit-aws_init-sh)
+    - [aws_init.sh](#edit-aws_initsh)
     - [Edit the properties file](#edit-the-properties-file)
          - [Database Access](#database-access)
-         - [Athenz CA X.509 Certificate Issuing](#athenz-ca-x-509-certificate-issuing)
+         - [Athenz CA X.509 Certificate Issuing](#athenz-ca-x509-certificate-issuing)
          - [Truststore and Keystore Settings](#truststore-and-keystore-settings)
 - [Packer](#packer)
     - [Packer VPC setup](#packer-vpc-setup)
@@ -31,11 +31,11 @@
 
 ## IAM Role Setup
 
-Create an EC2 profile role for ZTS using [cloudformation template](https://github.com/AthenZ/athenz-aws-cf-setup/tree/master/zts-setup/cloud-formation/athens-zts-aws-roles-setup.yaml). This template creates a role named `athenz.zts-service`
+Create an EC2 profile role for ZTS using [cloudformation template](https://github.com/AthenZ/athenz-aws-cf-setup/tree/master/zts-setup/cloud-formation/athenz-zts-aws-roles-setup.yaml). This template creates a role named `athenz.zts-service`
 
 ## VPC Setup
 
-Setup VPC using the [cloudformation template](https://github.com/AthenZ/athenz-aws-cf-setup/tree/master/zts-setup/cloud-formation/athens-zts-aws-resource-setup.yaml) and giving the following mandatory parameters:
+Setup VPC using the [cloudformation template](https://github.com/AthenZ/athenz-aws-cf-setup/tree/master/zts-setup/cloud-formation/athenz-zts-aws-resource-setup.yaml) and giving the following mandatory parameters:
 
 - `Route53HostedZoneName`
 - `Route53RecordName`
@@ -62,7 +62,7 @@ Following resources will be created after executing the template:
 
 ### Create Aurora MySQL cluster
 
-Setup an Aurora MySQL cluster using cloudformation [template](https://github.com/AthenZ/athenz-aws-cf-setup/tree/master/zts-setup/cloud-formation/athens-zts-aws-rds-setup.yaml) by giving the following mandatory parameters:
+Setup an Aurora MySQL cluster using cloudformation [template](https://github.com/AthenZ/athenz-aws-cf-setup/tree/master/zts-setup/cloud-formation/athenz-zts-aws-rds-setup.yaml) by giving the following mandatory parameters:
 
 - `Route53HostedZoneName`
 - `Route53RecordName`
@@ -142,7 +142,7 @@ server's CA certificate to other hosts (e.g. Hosts running ZPU).*
 
 - Follow the instructions provided by the Certificate Authority that you're going to purchase your certificate from, to generate your private key and Certificate Request (CSR). Submit your CSR to your CA to generate a x.509 certificate for your ZMS server.
 
-- If you are using self signed certs then run the following commands:
+- If you are using self-signed certs then run the following commands:
 
 ```
 openssl genrsa -des3 -out zts_ca_key 4096 (Create ZTS CA Key)
@@ -194,13 +194,13 @@ They are required to generate athenz.conf file at `/opt/zts/conf` to include the
 
 You can use SelfCertSigner or have your implementation of Cert Signer.
  
-Refer [Certificate Signer](cert_signer.md) for full details how to implement your cert signer.
+Refer [Certificate Signer](https://github.com/AthenZ/athenz/blob/master/docs/cert_signer.md) for full details how to implement your cert signer.
 
 If you are using self cert signer then
 
 - Generate a private key and upload it to s3 bucket with name `self_cert_signer_key`
 
-## Update the  policy for S3 bucket for Audit logs
+## Update the policy for S3 bucket for Audit logs
 
 Update the bucket policy for S3 bucket created for audit logs during zms setup to allow `athenz.zts-service` role to read and write to it.
 

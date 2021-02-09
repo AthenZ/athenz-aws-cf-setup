@@ -8,18 +8,18 @@
     - [Schema Setup](#schema-setup)
 - [S3 Bucket to Store ZMS Data](#create-s3-bucket-to-store-zms-data)
     - [Generate and Upload Service Private Key](#generate-and-upload-service-private-key-and-id)
-    - [Upload Server X.509 Cert and Key](#upload-server-x-509-cert-and-key)
+    - [Upload Server X.509 Cert and Key](#upload-server-x509-cert-and-key)
     - [Upload RDS CA Certs](#upload-rds-ca-certs)
     - [Upload Truststore Password](#upload-truststore-password) 
     - [Upload ZMS DB User Password](#upload-zms-db-user-password)
 - [Create S3 Bucket for Audit logs](#create-s3-bucket-for-audit-logs)
 - [Configure Variables and Properties](#configure-variables-and-properties)
-    - [aws_init.sh](#edit-aws_init-sh)
-    - [zms.properties](#edit-zms-properties-file)
+    - [aws_init.sh](#edit-aws_initsh)
+    - [zms.properties](#edit-zmsproperties-file)
         - [Database Access](#database-access)
         - [User Authentication](#user-authentication)
         - [Domain Admins](#domain-admins)
-    - [athenz.properties](#edit-athenz-properties-file)
+    - [athenz.properties](#edit-athenzproperties-file)
         - [Truststore and Keystore Settings](#truststore-and-keystore-settings)
 - [Packer](#packer)
     - [Packer VPC setup](#packer-vpc-setup)
@@ -29,7 +29,7 @@
 
 ## IAM Role Setup
 
-Create an EC2 profile role for ZMS using the following [cloudformation template](https://github.com/AthenZ/athenz-aws-cf-setup/tree/master/zms-setup/cloud-formation/athens-zms-aws-roles-setup.yaml).
+Create an EC2 profile role for ZMS using the following [cloudformation template](https://github.com/AthenZ/athenz-aws-cf-setup/tree/master/zms-setup/cloud-formation/athenz-zms-aws-roles-setup.yaml).
 This template creates a role named `athenz.zms-service`.
 
 ## S3 Bucket for ELB Access Logs
@@ -57,7 +57,7 @@ Refer to [AWS ELB Documentation](https://docs.aws.amazon.com/elasticloadbalancin
 
 ## VPC Setup
 
-Setup a VPC using the following [cloudformation template](https://github.com/AthenZ/athenz-aws-cf-setup/tree/master/zms-setup/cloud-formation/athens-zms-aws-resource-setup.yaml) by giving the these mandatory parameters:
+Setup a VPC using the following [cloudformation template](https://github.com/AthenZ/athenz-aws-cf-setup/tree/master/zms-setup/cloud-formation/athenz-zms-aws-resource-setup.yaml) by giving the these mandatory parameters:
 
 - `Route53HostedZoneName`
 - `Route53RecordName`
@@ -83,7 +83,7 @@ Following resources will be created after executing the template:
 
 ### Create Aurora MySQL cluster
 
-Setup an Aurora MySQL compatible cluster using the following [cloudformation template](https://github.com/AthenZ/athenz-aws-cf-setup/tree/master/zms-setup/cloud-formation/athens-zms-aws-rds-setup.yaml) by giving the following mandatory parameters:
+Setup an Aurora MySQL compatible cluster using the following [cloudformation template](https://github.com/AthenZ/athenz-aws-cf-setup/tree/master/zms-setup/cloud-formation/athenz-zms-aws-rds-setup.yaml) by giving the following mandatory parameters:
 
 - `Route53HostedZoneName`
 - `Route53RecordName`
