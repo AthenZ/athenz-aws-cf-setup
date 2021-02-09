@@ -6,14 +6,14 @@
 # Licensed under the Apache License, Version 2.0 - http://www.apache.org/licenses/LICENSE-2.0
 #
 
-GOPKGNAME = github.com/AthenZ/athenz/aws-setup/athenz-conf-aws
+GOPKGNAME = github.com/AthenZ/athenz-aws-cf-setup/athenz-conf-aws
 PKG_DATE=$(shell date '+%Y-%m-%dT%H:%M:%S')
 BINARY=athenz-conf-aws
 SRC=athenz-conf-aws.go
 
 # check to see if go utility is installed
 GO := $(shell command -v go 2> /dev/null)
-export GOPATH=$(PWD)
+export GOPATH ?= $(HOME)/go
 
 ifdef GO
 
