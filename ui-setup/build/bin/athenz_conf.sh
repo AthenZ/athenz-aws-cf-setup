@@ -26,4 +26,4 @@ zmsUrl=$3
 # download CA certs from S3 bucket and store locally in temp directory
 aws s3 cp s3://$dataBucketName/$zms_public_key_file /tmp/zms_pub_key
 
-sudo /opt/athenz-ui/bin/linux/athenz-conf-aws -z $zmsUrl -k /tmp/zms_pub_key  -o $outputFile
+sudo /opt/athenz-ui/bin/athenz-conf-aws -z $zmsUrl -k /tmp/zms_pub_key  -o $outputFile

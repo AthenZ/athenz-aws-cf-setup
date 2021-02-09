@@ -1,0 +1,7 @@
+.idea/
+athenz-conf-aws/target/
+ui-setup/tars/
+zms-setup/tars/
+zts-setup/tars/
+ui-setup/build/bin/athenz-conf-aws
+zts-setup/build/bin/athenz-conf-aws

@@ -8,7 +8,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/AthenZ/athenz/libs/go/zmssvctoken"
+	"github.com/yahoo/athenz/libs/go/zmssvctoken"
 )
 
 func usage() string {
